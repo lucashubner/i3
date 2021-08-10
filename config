@@ -234,3 +234,5 @@ bindsym XF86AudioPrev exec playerctl previous
 # Auto Start Programs
 exec spotify
 exec chromium
+
+exec --no-startup-id clipit
