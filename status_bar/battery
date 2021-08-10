@@ -1,0 +1,33 @@
+#!/bin/bash
+
+
+# bateria vazia \\uf244
+# Bateria nivel 1 243
+# Bateria nivel 2 242
+# Bateria nivel 3 241
+# Bateria nivel 4 240
+
+NIVEL=$(upower -i /org/freedesktop/UPower/devices/battery_BAT1 | grep "percentage" | awk {'print $2'})
+
+NIVEL_INT=$(echo $NIVEL | sed 's/\%//g')
+
+if [[ $NIVEL_INT -le 10 ]] 
+then
+	printf "\\uf244"
+
+elif [[ $NIVEL_INT -le 25 ]]
+	then
+		printf "\\uf243"
+elif [[ $NIVEL_INT -le 50 ]]
+	then
+		printf "\\uf242"
+elif [[ $NIVEL_INT -le 75 ]]
+	then
+		printf "\\uf241"
+elif [[ $NIVEL_INT -le 100 ]]
+	then
+		printf "\\uf240"
+fi
+
+
+echo " " $NIVEL

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+STATUS=$(nmcli d | grep ^wlp3s0 | awk {'print $3'})
+
+if [[ $STATUS == 'conectado' ]];
+then
+	printf "\\uf1eb "
+	echo $(nmcli d | grep ^wlp3s0 | awk {'print $4'})
+else
+	printf "\\ufaa9 \\n"
+fi
